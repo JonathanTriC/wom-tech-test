@@ -19,13 +19,18 @@ export const HomeScreen: React.FC<HomeScreenProps> = () => {
     error,
     userEmail,
     fetchPosts,
+    onPressPostItem,
     onRefresh,
     onLogout,
   } = useHome();
   const styles = createStyles(theme);
 
   const renderItem = ({ item }: { item: Post }) => (
-    <PostCard post={item} onPress={() => {}} showChevron />
+    <PostCard
+      post={item}
+      onPress={() => onPressPostItem({ item })}
+      showChevron
+    />
   );
 
   const renderContent = () => {

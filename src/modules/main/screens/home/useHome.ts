@@ -6,7 +6,7 @@ import { BASE_URL } from '@constants';
 export const useHome = () => {
   const { theme } = useTheme();
   const { logout, getValidToken } = useAuth();
-  const { resetNavigate } = useNavigate();
+  const { resetNavigate, navigateScreen } = useNavigate();
 
   const [posts, setPosts] = useState<Post[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -37,6 +37,15 @@ export const useHome = () => {
     }
   };
 
+  const onPressPostItem = ({ item }: { item: Post }) => {
+    navigateScreen('Main', {
+      screen: 'DetailScreen',
+      params: {
+        data: item,
+      },
+    });
+  };
+
   const onLogout = async (): Promise<void> => {
     await logout();
     resetNavigate('Auth', { screen: 'LoginScreen' });
@@ -65,6 +74,7 @@ export const useHome = () => {
     error,
     userEmail,
     fetchPosts,
+    onPressPostItem,
     onRefresh,
     onLogout,
   };

@@ -1,6 +1,6 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import { useNavigator } from '@navigation/navigator';
-import { HomeScreen } from '@modules';
+import { DetailScreen, HomeScreen } from '@modules';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native';
 
@@ -20,6 +20,7 @@ export const MainStack: React.FC<MainStackProps> = () => {
         }}
       >
         <Stack.Screen name={'HomeScreen'} component={HomeScreen} />
+        <Stack.Screen name={'DetailScreen'} component={DetailScreen} />
       </Stack.Navigator>
     </SafeAreaView>
   );
