@@ -4,7 +4,7 @@ import { apiGetWithoutToken } from '@api';
 import { BASE_URL } from '@constants';
 
 export const useHome = () => {
-  const { theme } = useTheme();
+  const { theme, scheme, toggleTheme } = useTheme();
   const { logout, getValidToken } = useAuth();
   const { resetNavigate, navigateScreen } = useNavigate();
 
@@ -68,11 +68,13 @@ export const useHome = () => {
 
   return {
     theme,
+    scheme,
     posts,
     isLoading,
     isRefreshing,
     error,
     userEmail,
+    toggleTheme,
     fetchPosts,
     onPressPostItem,
     onRefresh,

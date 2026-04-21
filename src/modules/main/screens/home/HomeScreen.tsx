@@ -1,23 +1,26 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import { FlatList, RefreshControl, View } from 'react-native';
+import { FlatList, RefreshControl, TouchableOpacity, View } from 'react-native';
 import type { StackScreenProps } from '@react-navigation/stack';
 import { useHome } from './useHome';
 import { createStyles } from './styles';
 import { Button, SkeletonLoading, Text } from '@components';
 import { screenWidth } from '@constants';
 import { PostCard } from '@modules/main/components';
+import MaterialDesignIcons from '@react-native-vector-icons/material-design-icons/static';
 
 type HomeScreenProps = StackScreenProps<MainStackParamList, 'HomeScreen'>;
 
 export const HomeScreen: React.FC<HomeScreenProps> = () => {
   const {
     theme,
+    scheme,
     posts,
     isLoading,
     isRefreshing,
     error,
     userEmail,
+    toggleTheme,
     fetchPosts,
     onPressPostItem,
     onRefresh,
@@ -94,6 +97,13 @@ export const HomeScreen: React.FC<HomeScreenProps> = () => {
           ) : null}
         </View>
 
+        <TouchableOpacity onPress={toggleTheme}>
+          <MaterialDesignIcons
+            name={scheme === 'light' ? 'weather-night' : 'white-balance-sunny'}
+            size={30}
+            color={theme.neutral.base}
+          />
+        </TouchableOpacity>
         <View style={{ width: '28%' }}>
           <Button label="Logout" action={onLogout} danger />
         </View>

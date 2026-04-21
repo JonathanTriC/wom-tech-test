@@ -11,6 +11,7 @@ export const createStyles = (theme: ThemeType) =>
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-between',
+      gap: 8,
       paddingHorizontal: 16,
       paddingVertical: 16,
       backgroundColor: theme.background,
