@@ -1,26 +1,25 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import { useNavigator } from '@navigation/navigator';
-import { LoginScreen, SplashScreen } from '@modules';
+import { HomeScreen } from '@modules';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native';
 
-const Stack = createStackNavigator<AuthStackParamList>();
-type AuthStackProps = {};
+const Stack = createStackNavigator<MainStackParamList>();
+type MainStackProps = {};
 
-export const AuthStack: React.FC<AuthStackProps> = () => {
+export const MainStack: React.FC<MainStackProps> = () => {
   const { screenListeners } = useNavigator();
 
   return (
     <SafeAreaView style={styles.container}>
       <Stack.Navigator
-        initialRouteName="SplashScreen"
+        initialRouteName="HomeScreen"
         screenListeners={screenListeners}
         screenOptions={{
           headerShown: false,
         }}
       >
-        <Stack.Screen name={'SplashScreen'} component={SplashScreen} />
-        <Stack.Screen name={'LoginScreen'} component={LoginScreen} />
+        <Stack.Screen name={'HomeScreen'} component={HomeScreen} />
       </Stack.Navigator>
     </SafeAreaView>
   );
