@@ -6,10 +6,10 @@ A React Native CLI application built as a technical assessment. The app demonstr
 
 ## Test Account
 
-| Field    | Value               |
-|----------|---------------------|
-| Email    | `test@example.com`  |
-| Password | `password123`       |
+| Field    | Value              |
+| -------- | ------------------ |
+| Email    | `womtest@mail.com` |
+| Password | `womtest`          |
 
 ---
 
@@ -26,16 +26,16 @@ A React Native CLI application built as a technical assessment. The app demonstr
 
 ## Tech Stack
 
-| Category | Library / Tool |
-|---|---|
-| Framework | React Native 0.84.1 (CLI) |
-| Language | TypeScript 5.8 (strict) |
-| Navigation | React Navigation 7 — Stack |
-| Forms | React Hook Form 7 + Yup 1.6 |
-| Storage | react-native-mmkv 4 (AES-256 encrypted) |
-| JWT | crypto-js 4.2 (pure JS HS256 — no native bridge) |
-| HTTP | Axios 1.15 |
-| Package manager | Yarn |
+| Category        | Library / Tool                                   |
+| --------------- | ------------------------------------------------ |
+| Framework       | React Native 0.84.1 (CLI)                        |
+| Language        | TypeScript 5.8 (strict)                          |
+| Navigation      | React Navigation 7 — Stack                       |
+| Forms           | React Hook Form 7 + Yup 1.6                      |
+| Storage         | react-native-mmkv 4 (AES-256 encrypted)          |
+| JWT             | crypto-js 4.2 (pure JS HS256 — no native bridge) |
+| HTTP            | Axios 1.15                                       |
+| Package manager | Yarn                                             |
 
 ---
 
@@ -85,15 +85,15 @@ NavigationContainer
 
 ## Prerequisites
 
-| Tool | Version |
-|---|---|
-| Node.js | ≥ 22.11.0 |
-| Yarn | any |
-| Ruby | ≥ 2.7 (iOS) |
-| CocoaPods | ≥ 1.12 (iOS) |
-| Xcode | ≥ 15 (iOS) |
+| Tool           | Version           |
+| -------------- | ----------------- |
+| Node.js        | ≥ 22.11.0         |
+| Yarn           | any               |
+| Ruby           | ≥ 2.7 (iOS)       |
+| CocoaPods      | ≥ 1.12 (iOS)      |
+| Xcode          | ≥ 15 (iOS)        |
 | Android Studio | Hedgehog or newer |
-| JDK | 17 |
+| JDK            | 17                |
 
 ---
 
@@ -135,16 +135,16 @@ yarn android
 
 Posts are fetched from [JSONPlaceholder](https://jsonplaceholder.typicode.com) — a free, public REST API. No API key is required.
 
-| Endpoint | Description |
-|---|---|
-| `GET /posts` | Fetch all posts (Home screen) |
+| Endpoint         | Description                         |
+| ---------------- | ----------------------------------- |
+| `GET /posts`     | Fetch all posts (Home screen)       |
 | `GET /posts/:id` | Fetch a single post (Detail screen) |
 
 ---
 
 ## Auth Implementation Notes
 
-- Credentials are hardcoded for demo purposes (`test@example.com` / `password123`)
+- Credentials are hardcoded for demo purposes (`womtest@mail.com` / `womtest`)
 - On successful login a **HS256 JWT** is generated client-side using `crypto-js` and stored in MMKV with AES-256 encryption
 - Token expiry is **1 hour** from login time
 - On every app launch the Splash screen calls `getValidToken()` — if the token is missing or expired the user is sent to Login; otherwise directly to Home
